@@ -37,13 +37,14 @@ export default function GalleryPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 🔹 Auto Slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 2500);
+ // 🔹 Auto Slide (FIXED)
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  }, 2500);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, [images.length]);
 
   // 🔹 Scroll Animation
   useEffect(() => {
