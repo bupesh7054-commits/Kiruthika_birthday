@@ -1,0 +1,189 @@
+/* ========================= */
+/* 🌙 CONTAINER */
+/* ========================= */
+.envelope-container {
+  position: relative;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;   /* 🔥 IMPORTANT FIX */
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  text-align: center;
+}
+
+/* 🌑 Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Keep content above overlay */
+.env-title,
+.env-subtitle,
+.envelope,
+.letter {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================= */
+/* ✨ TEXT ABOVE */
+/* ========================= */
+.env-title {
+  font-size: 2.8rem;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(255,255,255,0.7);
+}
+
+.env-subtitle {
+  color: #ddd;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* ========================= */
+/* 💌 ENVELOPE */
+/* ========================= */
+.envelope {
+  cursor: pointer;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* 🔥 Bigger envelope */
+.envelope img {
+  width: 320px;
+  max-width: 90%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.envelope img:hover {
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* 📜 LETTER */
+/* ========================= */
+.letter {
+  background: #fffaf0;
+  padding: 30px;
+  width: 350px;
+  max-width: 90%;
+  border-radius: 15px;
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: letterAppear 0.8s ease;
+}
+
+.letter p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Button */
+.letter button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.letter button:hover {
+  background: #b3002d;
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* 🎬 ANIMATIONS */
+/* ========================= */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes letterAppear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 600px) {
+  .env-title {
+    font-size: 1.8rem;
+  }
+
+  .env-subtitle {
+    font-size: 1rem;
+  }
+
+  .envelope img {
+    width: 200px;
+  }
+
+  .letter {
+    padding: 20px;
+  }
+
+  .letter p {
+    font-size: 1rem;
+  }
+
+  .letter button {
+    width: 100%;
+  }
+}
+
+/* ========================= */
+/* 📲 TABLET */
+/* ========================= */
+@media (max-width: 900px) {
+  .env-title {
+    font-size: 2.2rem;
+  }
+
+  .envelope img {
+    width: 260px;
+  }
+}
+
+/* ========================= */
+/* 💻 LARGE SCREEN */
+/* ========================= */
+@media (min-width: 1200px) {
+  .env-title {
+    font-size: 3rem;
+  }
+
+  .envelope img {
+    width: 360px;
+  }
+
+  .letter {
+    width: 400px;
+  }
+}
