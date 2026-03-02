@@ -47,18 +47,20 @@ export default function GalleryPage() {
 
   // 🔹 Scroll Animation
   useEffect(() => {
-    const elements = document.querySelectorAll(".fade-up");
+  const elements = document.querySelectorAll(".fade-up");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
     });
+  });
 
-    elements.forEach((el) => observer.observe(el));
-  }, []);
+  elements.forEach((el) => observer.observe(el));
+
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   return (
     <div className="gallery-container">
